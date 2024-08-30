@@ -1,0 +1,146 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+
+* {
+  box-sizing: border-box;
+}
+body {
+  font-family: "Roboto", sans-serif;
+  margin: auto;
+  overflow-x: hidden;
+  color: #222;
+  background-color: #333;
+}
+
+.container {
+  background-color: #fafafa;
+  transform-origin: top left;
+  transition: transform 0.5s linear;
+  width: 100vw;
+  min-height: 100vh;
+  padding: 50px;
+}
+.container.show-nav {
+  transform: rotate(-20deg);
+}
+
+.circle-container {
+  position: fixed;
+  top: -100px;
+  left: -100px;
+}
+
+.round-circle {
+  background-color: #b34b05;
+  height: 200px;
+  width: 200px;
+  border-radius: 100px;
+  position: fixed;
+  transition: transform 0.5s linear;
+}
+.container.show-nav .round-circle {
+  transform: rotate(-70deg);
+}
+
+.round-circle button {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  height: 100px;
+  background: transparent;
+  border: none;
+  font-size: 30px;
+  color: #fafafa;
+}
+.round-circle button:focus {
+  outline: none;
+}
+.round-circle button#open {
+  left: 60%;
+}
+.round-circle button#close {
+  top: 60%;
+  transform: rotate(90deg);
+  transform-origin: top left;
+}
+
+nav {
+  position: fixed;
+  bottom: 40px;
+  left: 0;
+  z-index: 100;
+}
+ul li {
+  color: #fafafa;
+  list-style-type: none;
+  margin: 40px 0;
+  text-transform: uppercase;
+  transform: translateX(-100%);
+  transition: transform 0.4s ease-in;
+}
+.container.show-nav + nav li {
+  transform: translateX(0);
+  transition-delay: 0.3s;
+}
+nav li + li {
+  margin-left: 15px;
+  transform: translateX(-150%);
+}
+nav li + li + li {
+  margin-left: 30px;
+  transform: translateX(-200%);
+}
+i::before {
+  margin-right: 10px;
+  font-size: 20px;
+}
+
+.container-img {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 3px;
+  min-height: 63vh;
+}
+
+.img1 {
+  background-image: url("https://img.freepik.com/free-photo/sports-car-driving-asphalt-road-night-generative-ai_188544-8052.jpg?t=st=1723773090~exp=1723776690~hmac=931f5312c9eddb73bfeb0cf6818b34b4284a9ea3ad87f094b50da854f365e2e8&w=900");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+.img2 {
+  background-image: url("https://img.freepik.com/free-photo/sports-car-driving-asphalt-road-night-generative-ai_188544-8052.jpg?t=st=1723773090~exp=1723776690~hmac=931f5312c9eddb73bfeb0cf6818b34b4284a9ea3ad87f094b50da854f365e2e8&w=900");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+.content {
+  max-width: 100vw;
+  margin: 50px auto;
+}
+.content h1 {
+  margin: 0;
+}
+
+.content small {
+  color: #555;
+}
+.content p {
+  color: #333;
+  line-height: 1.5;
+}
+
+@media (max-width: 600px) {
+  .container-img {
+    display: grid;
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+    gap: 3px;
+    min-height: 100vh;
+  }
+  .img1 {
+    background-position: center;
+  }
+  .img2 {
+    background-position: center;
+  }
+}
